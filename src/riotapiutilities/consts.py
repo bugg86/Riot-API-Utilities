@@ -22,5 +22,6 @@ URL = {
     'champion_mastery_by_summoner_id' : 'champion-mastery/v{version}/champion-masteries/by-summoner/{summonerID}',
     'live_match_by_id' : 'spectator/v{version}/active-games/by-summoner/{summonerID}',
     'summoner_by_id' : 'summoner/v{version}/summoners/{summonerID}',
-    'account_by_puuid' : 'account/v{version}/accounts/by-puuid/{puuid}'
+    'account_by_puuid' : 'account/v{version}/accounts/by-puuid/{puuid}',
+    'champion_mastery_by_summoner_id_and_champ_id' : 'champion-mastery/v{version}/champion-masteries/by-summoner/{summonerID}/by-champion/{championID}'
 }

@@ -1,5 +1,5 @@
 import requests
-import consts as Consts
+from .consts import *
 
 class RiotApi(object) :
     def __init__(self, api_key, region) :
@@ -12,7 +12,7 @@ class RiotApi(object) :
             if key not in args :
                 args[key] = value
         response = requests.get(
-            Consts.URL['base'].format(
+            URL['base'].format(
                 region=self.region,
                 url=api_url
             ), 
@@ -37,40 +37,49 @@ class RiotApi(object) :
 
     # Look up account information using puuid.
     def get_account_by_puuid(self, puuid) :
-        api_url = Consts.URL['account_by_puuid'].format(
-            version = Consts.API_VERSIONS['account'],
+        api_url = URL['account_by_puuid'].format(
+            version = API_VERSIONS['account'],
             puuid = puuid
         )
         return self.request(api_url)
 
     # Look up league information using encrypted summoner id.
     def get_league_by_summoner_id(self, summonerid) :
-        api_url = Consts.URL['league_by_summoner_id'].format(
-            version = Consts.API_VERSIONS['league'],
+        api_url = URL['league_by_summoner_id'].format(
+            version = API_VERSIONS['league'],
             summonerID = summonerid
         )
         return self.request(api_url)
 
     # Look up champion mastery information using encrypted summoner id.
     def get_champ_mastery_by_summoner_id(self, summonerid) :
-        api_url = Consts.URL['champion_mastery_by_summoner_id'].format(
-            version = Consts.API_VERSIONS['champion-mastery'],
+        api_url = URL['champion_mastery_by_summoner_id'].format(
+            version = API_VERSIONS['champion-mastery'],
             summonerID = summonerid
+        )
+        return self.request(api_url)
+
+    # Look up champion mastery information using encrypted summoner id and champion id.
+    def get_champ_mastery_by_summoner_id_and_champ_id(self, summonerid, champid) :
+        api_url = URL['champion_mastery_by_summoner_id_and_champ_id'].format(
+            version = API_VERSIONS['champion-mastery'],
+            summonerID = summonerid,
+            champID = champid
         )
         return self.request(api_url)
 
     # Look up live match information using encrypted summoner id.
     def get_live_match_by_summoner_id(self, summonerid) :
-        api_url = Consts.URL['live_match_by_id'].format(
-            version = Consts.API_VERSIONS['spectator'],
+        api_url = URL['live_match_by_id'].format(
+            version = API_VERSIONS['spectator'],
             summonerID = summonerid
         )
         return self.request(api_url)
     
     # Look up matches based on puuid and start and end indices.
     def get_match_list_by_summoner_id(self, puuid, start, count) :
-        api_url = Consts.URL['matches'].format(
-            version = Consts.API_VERSIONS['match'],
+        api_url = URL['matches'].format(
+            version = API_VERSIONS['match'],
             puuid = puuid,
             start = start,
             count = count
@@ -79,8 +88,8 @@ class RiotApi(object) :
     
     # Look up match based on matchid.
     def get_match_by_match_id(self, matchid) :
-        api_url = Consts.URL['match'].format(
-            version = Consts.API_VERSIONS['match'],
+        api_url = URL['match'].format(
+            version = API_VERSIONS['match'],
             matchID = matchid
         )
         return self.request(api_url)
