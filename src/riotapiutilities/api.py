@@ -64,7 +64,7 @@ class RiotApi(object) :
         api_url = URL['champion_mastery_by_summoner_id_and_champ_id'].format(
             version = API_VERSIONS['champion-mastery'],
             summonerID = summonerid,
-            champID = champid
+            championID = champid
         )
         return self.request(api_url)
 

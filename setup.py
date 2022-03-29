@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='riotapiutilities',
-    version='1.1.3',
+    version='1.2.0',
     license='MIT',
     author="Jack Fink",
     author_email='jackfink68@yahoo.com',
